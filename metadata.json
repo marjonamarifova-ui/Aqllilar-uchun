@@ -1,0 +1,5 @@
+{
+  "name": "Aqllilar uchun",
+  "description": "A puzzle-adventure game where the player walks on floating tiles marked with numbers. The goal is to reach the target number exactly by choosing the correct sequence of steps.",
+  "requestFramePermissions": []
+}
