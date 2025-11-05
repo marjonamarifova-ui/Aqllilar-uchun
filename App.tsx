@@ -48,7 +48,7 @@ const App: React.FC = () => {
         setTimeLeft(prev => {
           if (prev <= 1) {
             clearInterval(timer);
-            handleNextLevel();
+            setGameState(GameState.GAME_COMPLETE); // End game if time runs out
             return 0;
           }
           return prev - 1;
@@ -80,13 +80,14 @@ const App: React.FC = () => {
     setPath(prev => [...prev, pos]);
 
     if (newScore === level.target) {
-      setTotalScore(prev => prev + newScore);
+      setTotalScore(prev => prev + score + value + timeLeft); // Bonus for time left
       setGameState(GameState.LEVEL_COMPLETE);
     }
   };
 
   const handleRestart = () => {
     resetLevel();
+    setGameState(GameState.PLAYING);
   };
 
   const handlePlayAgain = () => {
@@ -122,7 +123,7 @@ const App: React.FC = () => {
               onRestart={handleRestart}
             />
             <div className="absolute inset-0">
-              <LevelCompleteScreen levelIndex={currentLevelIndex} onNextLevel={handleNextLevel} />
+              <LevelCompleteScreen level={level} onNextLevel={handleNextLevel} />
             </div>
           </>
         );

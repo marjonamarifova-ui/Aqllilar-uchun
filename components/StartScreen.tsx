@@ -39,17 +39,17 @@ const StartScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
           className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 tracking-wider animate-fade-in animate-float"
           style={{ textShadow: '0 0 25px rgba(167, 139, 250, 0.5), 0 0 10px rgba(255,255,255,0.2)' }}
         >
-          Aqllilar uchun
+          The Dream Path
         </h1>
         <p className="mt-6 text-xl text-gray-300 max-w-2xl animate-fade-in-delay-1 opacity-0">
-          Yorqin katakchalar ustiga bosing va sonlarni qo'shib boring. To'g'ri natijaga erishish va jumboqni yechish uchun o'z yo'lingizni diqqat bilan rejalashtiring.
+          Step onto glowing tiles and awaken lost memories. Sum the numbers to reach the target, and piece together the fragments of a forgotten dream.
         </p>
         <div className="mt-16 animate-fade-in-delay-2 opacity-0">
           <button
             onClick={onStart}
             className="px-20 py-5 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold text-2xl rounded-full hover:scale-105 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 animate-pulse-glow"
           >
-            Boshlash
+            Begin the Journey
           </button>
         </div>
       </div>
