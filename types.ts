@@ -16,5 +16,4 @@ export interface Level {
   grid: (number | null)[][];
   startPos: Position;
   timeLimit: number; // Time in seconds
-  storyTheme: string;
 }

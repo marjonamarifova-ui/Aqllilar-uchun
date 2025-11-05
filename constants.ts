@@ -12,7 +12,6 @@ export const LEVELS: Level[] = [
       [3, 6, null, 9],
       [null, 0, 1, null],
     ],
-    storyTheme: 'A Faint Echo',
   },
   {
     id: 2,
@@ -25,7 +24,6 @@ export const LEVELS: Level[] = [
       [null, 10, 2, -1],
       [1, null, 6, 7],
     ],
-    storyTheme: 'Playground Laughter',
   },
   {
     id: 3,
@@ -38,7 +36,6 @@ export const LEVELS: Level[] = [
       [4, -8, 6, 0],
       [1, 3, -1, 2],
     ],
-    storyTheme: 'A Misspoken Word',
   },
   {
     id: 4,
@@ -51,7 +48,6 @@ export const LEVELS: Level[] = [
       [7, null, 3, 12],
       [null, 2, 9, null],
     ],
-    storyTheme: 'The Warmth of the Sun',
   },
   {
     id: 5,
@@ -65,7 +61,6 @@ export const LEVELS: Level[] = [
       [4, 1, 9, 11],
       [null, 1, 0, 6],
     ],
-    storyTheme: 'A Shared Secret',
   },
   {
     id: 6,
@@ -78,7 +73,6 @@ export const LEVELS: Level[] = [
       [-1, -6, 2, -5],
       [9, -3, 4, -7],
     ],
-    storyTheme: 'The First Chill of Autumn',
   },
   {
     id: 7,
@@ -91,7 +85,6 @@ export const LEVELS: Level[] = [
       [0, 10, -10, 5],
       [30, null, 15, null],
     ],
-    storyTheme: 'A Promise Made',
   },
   {
     id: 8,
@@ -104,7 +97,6 @@ export const LEVELS: Level[] = [
       [null, 5, -10, 15],
       [30, null, 25, 5],
     ],
-    storyTheme: 'An Ambitious Goal',
   },
   {
     id: 9,
@@ -117,7 +109,6 @@ export const LEVELS: Level[] = [
       [2, -1, 0, 1],
       [-2, 3, -4, 0],
     ],
-    storyTheme: 'A Single Step',
   },
   {
     id: 10,
@@ -131,7 +122,6 @@ export const LEVELS: Level[] = [
       [null, 6, 1, 12, null],
       [14, null, 9, null, 3],
     ],
-    storyTheme: 'A Stroke of Luck',
   },
   {
     id: 11,
@@ -145,7 +135,6 @@ export const LEVELS: Level[] = [
       [3, -8, 2, -20, 15],
       [-1, 5, -5, 10, -10],
     ],
-    storyTheme: 'Perfect Balance',
   },
   {
     id: 12,
@@ -159,7 +148,6 @@ export const LEVELS: Level[] = [
       [7, 9, -2, 11, null],
       [13, null, 14, 6, 2],
     ],
-    storyTheme: 'Endless Possibilities',
   },
   {
     id: 13,
@@ -173,7 +161,6 @@ export const LEVELS: Level[] = [
       [5, 4, null, 3, 2],
       [0, -1, -1, -5, -10],
     ],
-    storyTheme: 'A Heavy Heart',
   },
   {
     id: 14,
@@ -187,7 +174,6 @@ export const LEVELS: Level[] = [
       [30, 0, 2, 3, 4],
       [null, 7, null, 9, 6],
     ],
-    storyTheme: 'Order from Chaos',
   },
   {
     id: 15,
@@ -201,7 +187,6 @@ export const LEVELS: Level[] = [
       [-18, 18, -21, 21, -24],
       [24, -27, 27, -30, 30],
     ],
-    storyTheme: 'A Pattern in the Noise',
   },
   {
     id: 16,
@@ -214,7 +199,6 @@ export const LEVELS: Level[] = [
       [null, 75, -25, null],
       [100, -50, 25, 0],
     ],
-    storyTheme: 'A Monumental Effort',
   },
   {
     id: 17,
@@ -228,7 +212,6 @@ export const LEVELS: Level[] = [
       [16, 17, 18, 19, 20],
       [21, 22, 23, 24, 25],
     ],
-    storyTheme: 'So Close to the End',
   },
   {
     id: 18,
@@ -241,7 +224,6 @@ export const LEVELS: Level[] = [
       [30, -35, 40, -15],
       [-20, 25, -30, -5],
     ],
-    storyTheme: 'Letting Go',
   },
   {
     id: 19,
@@ -254,6 +236,5 @@ export const LEVELS: Level[] = [
       [null, 256, 512, null],
       [1, 0, -256, -128],
     ],
-    storyTheme: 'Growing Stronger',
   },
 ];
