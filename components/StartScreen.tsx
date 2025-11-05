@@ -1,25 +1,57 @@
 import React from 'react';
 
-interface StartScreenProps {
-  onStart: () => void;
-}
+export const Particles = () => {
+  // Generate a fixed number of particles to avoid re-renders causing issues
+  const particleCount = 20;
+  const particles = Array.from({ length: particleCount }).map((_, i) => {
+    const size = Math.random() * 3 + 1; // size between 1px and 4px
+    const duration = Math.random() * 20 + 15; // duration between 15s and 35s
+    const delay = Math.random() * -30; // start at different times
+    const left = Math.random() * 100; // horizontal position
+    
+    return (
+      <div
+        key={i}
+        className="particle"
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          left: `${left}%`,
+          animationDuration: `${duration}s`,
+          animationDelay: `${delay}s`,
+        }}
+      />
+    );
+  });
 
-const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
+  return <div className="absolute top-0 left-0 w-full h-full overflow-hidden" aria-hidden="true">{particles}</div>;
+};
+
+
+const StartScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-black animate-fade-in p-4 text-center">
-      <h1 className="text-6xl md:text-8xl font-extrabold text-white tracking-wider" style={{ textShadow: '0 0 15px rgba(167, 139, 250, 0.6)' }}>
-        Aqllilar uchun
-      </h1>
-      <p className="mt-4 text-xl text-gray-300 max-w-2xl">
-        Yorqin katakchalar ustiga bosing va sonlarni qo'shib boring. To'g'ri natijaga erishish va jumboqni yechish uchun o'z yo'lingizni diqqat bilan rejalashtiring.
-      </p>
-      <div className="mt-12">
-        <button
-          onClick={onStart}
-          className="px-16 py-4 bg-violet-600 text-white font-bold text-xl rounded-full hover:bg-violet-500 hover:scale-105 transform transition-all duration-300 shadow-lg shadow-violet-600/50 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-opacity-75"
+    <div className="relative flex flex-col items-center justify-center h-screen bg-black overflow-hidden p-4 text-center">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-black to-black opacity-80"></div>
+      <Particles />
+
+      <div className="z-10 flex flex-col items-center justify-center">
+        <h1 
+          className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 tracking-wider animate-fade-in animate-float"
+          style={{ textShadow: '0 0 25px rgba(167, 139, 250, 0.5), 0 0 10px rgba(255,255,255,0.2)' }}
         >
-          Boshlash
-        </button>
+          Aqllilar uchun
+        </h1>
+        <p className="mt-6 text-xl text-gray-300 max-w-2xl animate-fade-in-delay-1 opacity-0">
+          Yorqin katakchalar ustiga bosing va sonlarni qo'shib boring. To'g'ri natijaga erishish va jumboqni yechish uchun o'z yo'lingizni diqqat bilan rejalashtiring.
+        </p>
+        <div className="mt-16 animate-fade-in-delay-2 opacity-0">
+          <button
+            onClick={onStart}
+            className="px-20 py-5 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold text-2xl rounded-full hover:scale-105 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 animate-pulse-glow"
+          >
+            Boshlash
+          </button>
+        </div>
       </div>
     </div>
   );

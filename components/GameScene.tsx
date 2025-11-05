@@ -3,6 +3,7 @@ import { Level, Position } from '../types';
 import HeaderUI from './LoadingIndicator'; // Re-purposed for UI
 import Player from './SpiritGuide'; // Re-purposed for Player orb
 import Tile from './PathSelectionScreen'; // Re-purposed for Tile
+import { Particles } from './StartScreen';
 
 interface GameSceneProps {
   level: Level;
@@ -26,7 +27,8 @@ const GameScene: React.FC<GameSceneProps> = ({ level, score, playerPos, path, ti
   const totalTileSize = TILE_SIZE + GAP_SIZE;
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black p-4 animate-fade-in">
+    <div className="relative overflow-hidden flex flex-col items-center justify-center h-screen bg-gradient-to-br from-[#0c0a1f] via-[#1a1a3d] to-[#0c0a1f] p-4 animate-fade-in">
+      <Particles />
       <HeaderUI 
         target={level.target} 
         score={score} 
