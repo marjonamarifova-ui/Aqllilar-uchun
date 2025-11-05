@@ -1,5 +1,5 @@
 // Fix: Implement the main application logic for the Number Path game.
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { GameState, Position, Level } from './types';
 import { LEVELS } from './constants';
 import StartScreen from './components/StartScreen';
@@ -15,8 +15,27 @@ const App: React.FC = () => {
   const [playerPos, setPlayerPos] = useState<Position>(LEVELS[0].startPos);
   const [path, setPath] = useState<Position[]>([]);
   const [timeLeft, setTimeLeft] = useState(LEVELS[0].timeLimit);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const level: Level = LEVELS[currentLevelIndex];
+
+  useEffect(() => {
+    // This effect handles unmuting the background music on the first user interaction.
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const unmuteAndPlay = () => {
+      audio.muted = false;
+       // Some browsers might not truly autoplay even when muted, so we ensure play is called.
+      if (audio.paused) {
+        audio.play().catch(error => console.log("Playback prevented on interaction:", error));
+      }
+    };
+
+    // Use { once: true } to automatically remove the listener after it fires.
+    document.addEventListener('click', unmuteAndPlay, { once: true });
+    document.addEventListener('touchend', unmuteAndPlay, { once: true });
+  }, []);
 
   const handleNextLevel = useCallback(() => {
     const nextLevelIndex = currentLevelIndex + 1;
@@ -133,7 +152,19 @@ const App: React.FC = () => {
     }
   };
 
-  return <div className="relative w-full h-screen bg-black">{renderGameContent()}</div>;
+  return (
+    <div className="relative w-full h-screen bg-black">
+       <audio 
+        ref={audioRef}
+        src="https://cdn.pixabay.com/download/audio/2025/05/22/audio_7e6322ff73.mp3?filename=game-intro-345507.mp3" 
+        loop 
+        autoPlay
+        muted
+        preload="auto"
+      />
+      {renderGameContent()}
+    </div>
+  );
 };
 
 export default App;

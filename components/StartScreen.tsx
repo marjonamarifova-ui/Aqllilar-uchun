@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 
 export const Particles = () => {
   // Generate a fixed number of particles to avoid re-renders causing issues
@@ -29,33 +29,8 @@ export const Particles = () => {
 
 
 const StartScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play().catch(error => {
-        // Autoplay is often blocked by browsers, this is expected.
-        console.log("Audio autoplay was prevented:", error);
-      });
-    }
-  }, []);
-
-  const handleStart = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    onStart();
-  };
-
   return (
     <div className="relative flex flex-col items-center justify-center h-screen bg-black overflow-hidden p-4 text-center">
-      <audio 
-        ref={audioRef}
-        src="https://cdn.pixabay.com/download/audio/2025/05/22/audio_7e6322ff73.mp3?filename=game-intro-345507.mp3" 
-        loop 
-        preload="auto"
-      />
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-black to-black opacity-80"></div>
       <Particles />
 
@@ -71,7 +46,7 @@ const StartScreen: React.FC<{ onStart: () => void }> = ({ onStart }) => {
         </p>
         <div className="mt-16 animate-fade-in-delay-2 opacity-0">
           <button
-            onClick={handleStart}
+            onClick={onStart}
             className="px-20 py-5 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold text-2xl rounded-full hover:scale-105 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 animate-pulse-glow"
           >
             Boshlash
